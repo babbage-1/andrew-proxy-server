@@ -1,9 +1,9 @@
 {
-  "name": "",
-  "version": "",
-  "description": "",
-  "author": "",
-  "license": "",
+  "name": "andrew-sdc-proxy",
+  "version": "1.0.0",
+  "description": "proxy for andrew-sdc-main-video-info",
+  "author": "Andrew Chung",
+  "license": "UNLICENSED",
   "engines": {
     "node": ">=6.13.0"
   },

@@ -29,7 +29,7 @@ app.listen(PORT, () => {
 // video carousel
 const videoCarouselOptions = {
   target: 'http://localhost:3333',
-  changeOrigin: true
+  changeOrigin: true,
 };
 const videoCarouselProxy = proxy(videoCarouselOptions);
 
@@ -39,7 +39,7 @@ app.use('/associatedVideos', videoCarouselProxy);
 
 const castCrewOptions = {
   target: 'http://localhost:2002',
-  changeOrigin: true
+  changeOrigin: true,
 };
 const castCrewProxy = proxy(castCrewOptions);
 app.use('/actors', castCrewProxy);
