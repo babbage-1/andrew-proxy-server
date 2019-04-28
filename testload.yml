@@ -5,8 +5,8 @@ config:
       arrivalRate: 1
       rampTo: 20
       name: "warm up application"
-    - duration: 180
-      arrivalRate: 20
+    - duration: 600
+      arrivalRate: 22
       name: "Sustained max load"
     # - duration: 60
     #   arrivalRate: 40
@@ -25,18 +25,18 @@ config:
 
 scenarios:
   - name: "Senario to loop 5 GET requests"
-    weight: 7
+    weight: 10
     flow:
       - loop:
         - get:
-            url: "/main/1/read"
+            url: "/main/{{ id }}/read"
         - think: 5
-        count: 8
+        count: 5
   - name: "Secnario to make POST request"
     weight: 1
     flow:
       - loop:
-        - think: 5
+        - think: 40
         - post:
             url: "/main/{{ id }}/create"
             json:
