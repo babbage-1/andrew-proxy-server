@@ -8,9 +8,6 @@ config:
     - duration: 600
       arrivalRate: 22
       name: "Sustained max load"
-    # - duration: 60
-    #   arrivalRate: 40
-    #   name: "40 users/s"
   payload:
     path: "newrelicId.csv"
     fields:
