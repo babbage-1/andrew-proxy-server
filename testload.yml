@@ -1,16 +1,16 @@
 config:
-  target: "http://localhost:3000/"
+  target: "http://localhost:3000"
   phases:
     - duration: 60
-      arrivalRate: 10
-      rampTo: 50
-      name: "Warm up the application"
-    - duration: 60
-      arrivalRate: 50
+      arrivalRate: 1
+      rampTo: 20
+      name: "warm up application"
+    - duration: 180
+      arrivalRate: 20
       name: "Sustained max load"
-  defaults:
-    headers:
-      # x-my-service-auth: '987401838271002188298567'
+    # - duration: 60
+    #   arrivalRate: 40
+    #   name: "40 users/s"
   payload:
     path: "newrelicId.csv"
     fields:
@@ -24,29 +24,31 @@ config:
     max: 3000
 
 scenarios:
-  - name: "Senario to make 19 GET requests"
-    weight: 5
+  - name: "Senario to loop 5 GET requests"
+    weight: 7
     flow:
       - loop:
         - get:
-            url: "main/{{ id }}/read"
+            url: "/main/1/read"
         - think: 5
-        count: 19
+        count: 8
   - name: "Secnario to make POST request"
     weight: 1
     flow:
-      - think: 40
-      - post:
-          url: "main/{{ id }}/create"
-          json:
-            name: "adipisci sit at"
-            genre: "Romance|Fantasy"
-            score: "3"
-            runtime: "157"
-            rating: "PG"
-            releaseday: "23"
-            releasemonth: "June"
-            releaseyear: "1994"
-            image: "https://s3.us-east-2.amazonaws.com/sdc-andrew-movie-posters/--anoWjsY-8.jpg"
+      - loop:
+        - think: 5
+        - post:
+            url: "/main/{{ id }}/create"
+            json:
+              name: "adipisci sit at"
+              genre: "Romance|Fantasy"
+              score: "3"
+              runtime: "157"
+              rating: "PG"
+              releaseday: "23"
+              releasemonth: "June"
+              releaseyear: "1994"
+              image: "https://s3.us-east-2.amazonaws.com/sdc-andrew-movie-posters/--anoWjsY-8.jpg"
+        count: 1
 
 
