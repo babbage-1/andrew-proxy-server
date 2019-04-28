@@ -51,4 +51,4 @@ const movieInfoOptions = {
 };
 
 const movieInfoProxy = proxy(movieInfoOptions);
-app.use('/info', movieInfoProxy);
+app.use('/main', movieInfoProxy);
