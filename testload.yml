@@ -1,0 +1,52 @@
+config:
+  target: "http://localhost:3000/"
+  phases:
+    - duration: 60
+      arrivalRate: 10
+      rampTo: 50
+      name: "Warm up the application"
+    - duration: 60
+      arrivalRate: 50
+      name: "Sustained max load"
+  defaults:
+    headers:
+      # x-my-service-auth: '987401838271002188298567'
+  payload:
+    path: "newrelicId.csv"
+    fields:
+      - "id"
+    skipHeader: true
+  http:
+    pool: 20
+  ensure:
+    maxErrorRate: 1
+    p95: 2000
+    max: 3000
+
+scenarios:
+  - name: "Senario to make 19 GET requests"
+    weight: 5
+    flow:
+      - loop:
+        - get:
+            url: "main/{{ id }}/read"
+        - think: 5
+        count: 19
+  - name: "Secnario to make POST request"
+    weight: 1
+    flow:
+      - think: 40
+      - post:
+          url: "main/{{ id }}/create"
+          json:
+            name: "adipisci sit at"
+            genre: "Romance|Fantasy"
+            score: "3"
+            runtime: "157"
+            rating: "PG"
+            releaseday: "23"
+            releasemonth: "June"
+            releaseyear: "1994"
+            image: "https://s3.us-east-2.amazonaws.com/sdc-andrew-movie-posters/--anoWjsY-8.jpg"
+
+
