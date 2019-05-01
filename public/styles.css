@@ -26,7 +26,7 @@ body {
   grid-row: 2 / 3;
 }
 
-#video-carousel {
+#video {
   position: absolute;
   top: 180px;
   left: 525px;
@@ -39,7 +39,7 @@ body {
 
 }
 @media screen and (max-width: 1500px) {
-  #video-carousel {
+  #video {
     /* display: none; */
   }
 }
