@@ -2,3 +2,9 @@ node_modules
 newrelic.js
 newrelic_agent.log
 *.csv
+
+# files to ignore for deployment
+testload.yml
+STYLE-GUIDE.md
+client/
+
