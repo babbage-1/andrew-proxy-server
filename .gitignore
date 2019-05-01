@@ -1,5 +1,5 @@
 node_modules
-newrelic.js
+newRelic.env
 newrelic_agent.log
 *.csv
 
