@@ -28,7 +28,7 @@ app.listen(PORT, () => {
 
 // video carousel
 const videoCarouselOptions = {
-  target: 'http://ec2-54-67-84-44.us-west-1.compute.amazonaws.com:3001',
+  target: 'http://ec2-13-57-213-223.us-west-1.compute.amazonaws.com:3001',
   changeOrigin: true,
 };
 const videoCarouselProxy = proxy(videoCarouselOptions);
@@ -36,7 +36,7 @@ app.use('/videos', videoCarouselProxy);
 
 // cast and crew
 const castCrewOptions = {
-  target: 'http://ec2-54-215-226-106.us-west-1.compute.amazonaws.com:2002',
+  target: 'http://ec2-13-57-198-90.us-west-1.compute.amazonaws.com:2002',
   changeOrigin: true,
 };
 const castCrewProxy = proxy(castCrewOptions);
