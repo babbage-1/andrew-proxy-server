@@ -7,4 +7,5 @@ newrelic_agent.log
 testload.yml
 STYLE-GUIDE.md
 client/
+*.txt
 

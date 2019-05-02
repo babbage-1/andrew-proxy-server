@@ -5,7 +5,6 @@ const proxy = require('http-proxy-middleware');
 const cors = require('cors');
 const app = express();
 
-const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 // serve up static file
@@ -13,18 +12,6 @@ const staticPath = `${__dirname}/../public`;
 console.log(staticPath);
 
 app.use('/fandangit/:id', express.static(staticPath));
-// app.use('/*/styles.css', express.static('public/styles.css'));
-// app.use('/*', express.static('public'));
-
-//
-// app.use(express.static(__dirname + '/../client/dist'));
-// app.use('/*/styles.css', express.static(__dirname + '/../client/dist/styles.css'));
-// app.use('/*', express.static(__dirname + '/../client/dist'));
-
-
-app.listen(PORT, () => {
-  console.log(`Listening on port ${PORT}...`);
-});
 
 // video carousel
 const videoCarouselOptions = {
@@ -49,3 +36,14 @@ const movieInfoOptions = {
 };
 const movieInfoProxy = proxy(movieInfoOptions);
 app.use('/main', movieInfoProxy);
+
+
+app.get('/loaderio-1698ae3347ba9e825f4991774b9b4485', (req, res) => {
+  const filePath = path.join(__dirname, './loaderio-1698ae3347ba9e825f4991774b9b4485.txt');
+  res.sendFile(filePath);
+});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Listening on port ${PORT}...`);
+});
