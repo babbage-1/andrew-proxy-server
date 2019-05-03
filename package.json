@@ -10,7 +10,7 @@
   "scripts": {
     "server": "nodemon server/index.js",
     "start": "node server/index.js",
-    "ec2:connectProxy": "ssh -i '/Users/exitright/code/amazon-keys/andrew-sdc-key-pair-useast1.pem' ec2-user@ec2-52-204-178-56.compute-1.amazonaws.com"
+    "ec2:proxy": "ssh -i '/Users/exitright/code/amazon-keys/andrew-sdc-key-pair-useast1.pem' ec2-user@ec2-52-204-178-56.compute-1.amazonaws.com"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
