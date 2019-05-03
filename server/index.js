@@ -31,7 +31,7 @@ app.use('/actors', castCrewProxy);
 
 // movie info
 const movieInfoOptions = {
-  target: 'http://ec2-54-91-248-31.compute-1.amazonaws.com:2000',
+  target: 'http://ec2-54-161-202-111.compute-1.amazonaws.com:8000',
   changeOrigin: true,
 };
 const movieInfoProxy = proxy(movieInfoOptions);
