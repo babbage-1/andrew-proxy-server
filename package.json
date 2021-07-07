@@ -1,9 +1,9 @@
 {
-  "name": "",
-  "version": "",
-  "description": "",
-  "author": "",
-  "license": "",
+  "name": "andrew-sdc-proxy",
+  "version": "1.0.0",
+  "description": "proxy for andrew-sdc-main-video-info",
+  "author": "Andrew Chung",
+  "license": "UNLICENSED",
   "engines": {
     "node": ">=6.13.0"
   },
@@ -14,10 +14,9 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "cors": "^2.8.5",
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "http-proxy-middleware": "^0.19.1",
+    "newrelic": "^5.7.0"
   },
-  "devDependencies": {
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
-    "http-proxy-middleware": "^0.19.1"
-  }
+  "devDependencies": {}
 }

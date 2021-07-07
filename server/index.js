@@ -1,3 +1,4 @@
+require('newrelic');
 const express = require('express');
 const path = require('path');
 const proxy = require('http-proxy-middleware');
@@ -25,12 +26,10 @@ app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}...`);
 });
 
-
-
 // video carousel
 const videoCarouselOptions = {
   target: 'http://localhost:3333',
-  // changeOrigin: true
+  changeOrigin: true,
 };
 const videoCarouselProxy = proxy(videoCarouselOptions);
 
@@ -40,7 +39,7 @@ app.use('/associatedVideos', videoCarouselProxy);
 
 const castCrewOptions = {
   target: 'http://localhost:2002',
-  // changeOrigin: true
+  changeOrigin: true,
 };
 const castCrewProxy = proxy(castCrewOptions);
 app.use('/actors', castCrewProxy);
@@ -50,5 +49,6 @@ const movieInfoOptions = {
   target: 'http://localhost:2000',
   changeOrigin: true,
 };
+
 const movieInfoProxy = proxy(movieInfoOptions);
-app.use('/info', movieInfoProxy);
+app.use('/main', movieInfoProxy);
